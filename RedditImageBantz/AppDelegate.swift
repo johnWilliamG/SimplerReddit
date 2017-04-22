@@ -25,7 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         foo.presenter = MainPresenter()
-
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = foo

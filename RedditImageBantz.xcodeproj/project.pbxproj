@@ -42,7 +42,6 @@
 		767D8FAE1EAB6EC7002FA775 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		767D8FB31EAB6EC7002FA775 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		767D8FB51EAB6EC7002FA775 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		767D8FB81EAB6EC7002FA775 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		767D8FBA1EAB6EC7002FA775 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		767D8FBF1EAB6EC7002FA775 /* RedditImageBantzTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RedditImageBantzTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		767D8FC31EAB6EC7002FA775 /* RedditImageBantzTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditImageBantzTests.swift; sourceTree = "<group>"; };
@@ -111,7 +110,6 @@
 				76FD75381EAB89D30023B597 /* Presenter.swift */,
 				76FD753A1EAB90DC0023B597 /* MainPresenter.swift */,
 				767D8FB51EAB6EC7002FA775 /* Assets.xcassets */,
-				767D8FB71EAB6EC7002FA775 /* LaunchScreen.storyboard */,
 				767D8FBA1EAB6EC7002FA775 /* Info.plist */,
 				769780A01EABA6D60031CB89 /* MainTabBarItems.swift */,
 			);
@@ -319,14 +317,6 @@
 				767D8FB31EAB6EC7002FA775 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		767D8FB71EAB6EC7002FA775 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				767D8FB81EAB6EC7002FA775 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

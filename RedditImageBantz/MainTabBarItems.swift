@@ -10,13 +10,29 @@ import UIKit
 
 struct MainTabBarItems {
     
-    private let firstBarItem = UITabBarItem(title: "List" , image: nil, selectedImage: nil)
-    private let secondBarItem = UITabBarItem(title: "Videos", image: nil, selectedImage: nil)
-    private let thirdBarItem = UITabBarItem(title: "Me", image: nil, selectedImage: nil)
+    private let firstTabBarItem = UITabBarItem(title: "List", image: nil, selectedImage: nil)
+    private let secondTabBarItem = UITabBarItem(title: "Images", image: nil, selectedImage: nil)
+    private let thirdTabBarItem = UITabBarItem(title: "Me", image: nil, selectedImage: nil)
 
-    public var barItems: [UITabBarItem] {
+    public var barItems: [MainTabBarItem] {
         get {
-            return [firstBarItem, secondBarItem, thirdBarItem]
+            let firstItem = MainTabBarItem(type: .List, barItem: firstTabBarItem)
+            let secondItem = MainTabBarItem(type: .Images, barItem: secondTabBarItem)
+            let thirdItem = MainTabBarItem(type: .Me, barItem: thirdTabBarItem)
+            return [firstItem, secondItem, thirdItem]
         }
     }
+}
+
+struct MainTabBarItem {
+    
+    var type: MainBarItemType
+    var barItem: UITabBarItem
+}
+
+enum MainBarItemType: String {
+    
+    case List = "List"
+    case Images = "Images"
+    case Me = "Me"
 }

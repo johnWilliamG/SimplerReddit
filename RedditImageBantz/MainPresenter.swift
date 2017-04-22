@@ -15,18 +15,18 @@ class MainPresenter: Presenter {
     
     func loadData() {
         
-        let tabBarViewControllers = MainTabBarItems().barItems.map { (item: UITabBarItem) -> UIViewController in
+        let tabBarViewControllers = MainTabBarItems().barItems.map { (item: MainTabBarItem) -> UIViewController in
             
-            let viewController = UIViewController()
-            viewController.tabBarItem = item
+            let viewController = UINavigationController(rootViewController: makeViewController(mainBarItemType: item.type))
+            
+            viewController.tabBarItem = item.barItem
             return viewController
         }
-        
         viewController?.viewControllers = tabBarViewControllers
         delegate?.presenterDidUpdate()
     }
     
-    func makeViewController() {
-        
+    func makeViewController(mainBarItemType type:MainBarItemType) -> UIViewController {
+        return UIViewController()
     }
 }

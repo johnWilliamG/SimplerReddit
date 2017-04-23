@@ -27,6 +27,26 @@ class MainPresenter: Presenter {
     }
     
     func makeViewController(mainBarItemType type:MainBarItemType) -> UIViewController {
-        return UIViewController()
+        
+        switch type {
+        case .images:
+            
+            return makeImagesViewController()
+        default:
+            return UIViewController()
+        }
+    }
+    
+    func makeImagesViewController() -> UIViewController {
+        
+        let collectionViewLayout = StretchCollectionViewHeaderLayout()
+        collectionViewLayout.sectionInset = UIEdgeInsets(top: -10, left: 0, bottom: 8, right: 0)
+        collectionViewLayout.minimumLineSpacing      = 8
+        collectionViewLayout.minimumInteritemSpacing = 0
+        
+        let imageListViewController = ImageListViewController(collectionViewLayout: collectionViewLayout)
+        imageListViewController.presenter = ImagesListPresenter(service: ImageListNetworkService())
+        
+        return imageListViewController
     }
 }

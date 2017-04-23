@@ -15,6 +15,12 @@
 		767D8FCF1EAB6EC7002FA775 /* RedditImageBantzUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767D8FCE1EAB6EC7002FA775 /* RedditImageBantzUITests.swift */; };
 		767D8FDD1EAB88AC002FA775 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767D8FDC1EAB88AC002FA775 /* MainTabBarController.swift */; };
 		769780A11EABA6D60031CB89 /* MainTabBarItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769780A01EABA6D60031CB89 /* MainTabBarItems.swift */; };
+		769780A31EABD5C20031CB89 /* StretchCollectionViewHeaderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769780A21EABD5C20031CB89 /* StretchCollectionViewHeaderLayout.swift */; };
+		769780A51EABE2BF0031CB89 /* ImagesListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769780A41EABE2BF0031CB89 /* ImagesListPresenter.swift */; };
+		769780A71EABE6770031CB89 /* ImageListNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769780A61EABE6770031CB89 /* ImageListNetworkService.swift */; };
+		769780A91EABE8330031CB89 /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769780A81EABE8330031CB89 /* NetworkTask.swift */; };
+		769780AB1EABF0860031CB89 /* ImageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769780AA1EABF0860031CB89 /* ImageListViewController.swift */; };
+		769780AD1EACD47E0031CB89 /* ImageListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769780AC1EACD47E0031CB89 /* ImageListCollectionViewCell.swift */; };
 		76FD75391EAB89D30023B597 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD75381EAB89D30023B597 /* Presenter.swift */; };
 		76FD753B1EAB90DC0023B597 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD753A1EAB90DC0023B597 /* MainPresenter.swift */; };
 /* End PBXBuildFile section */
@@ -51,6 +57,12 @@
 		767D8FD01EAB6EC7002FA775 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		767D8FDC1EAB88AC002FA775 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		769780A01EABA6D60031CB89 /* MainTabBarItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarItems.swift; sourceTree = "<group>"; };
+		769780A21EABD5C20031CB89 /* StretchCollectionViewHeaderLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StretchCollectionViewHeaderLayout.swift; sourceTree = "<group>"; };
+		769780A41EABE2BF0031CB89 /* ImagesListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesListPresenter.swift; sourceTree = "<group>"; };
+		769780A61EABE6770031CB89 /* ImageListNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageListNetworkService.swift; sourceTree = "<group>"; };
+		769780A81EABE8330031CB89 /* NetworkTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTask.swift; sourceTree = "<group>"; };
+		769780AA1EABF0860031CB89 /* ImageListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageListViewController.swift; sourceTree = "<group>"; };
+		769780AC1EACD47E0031CB89 /* ImageListCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageListCollectionViewCell.swift; sourceTree = "<group>"; };
 		76FD75381EAB89D30023B597 /* Presenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		76FD753A1EAB90DC0023B597 /* MainPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,8 +119,14 @@
 				767D8FAE1EAB6EC7002FA775 /* AppDelegate.swift */,
 				767D8FB21EAB6EC7002FA775 /* Main.storyboard */,
 				767D8FDC1EAB88AC002FA775 /* MainTabBarController.swift */,
+				769780AC1EACD47E0031CB89 /* ImageListCollectionViewCell.swift */,
 				76FD75381EAB89D30023B597 /* Presenter.swift */,
 				76FD753A1EAB90DC0023B597 /* MainPresenter.swift */,
+				769780A81EABE8330031CB89 /* NetworkTask.swift */,
+				769780A61EABE6770031CB89 /* ImageListNetworkService.swift */,
+				769780A41EABE2BF0031CB89 /* ImagesListPresenter.swift */,
+				769780AA1EABF0860031CB89 /* ImageListViewController.swift */,
+				769780A21EABD5C20031CB89 /* StretchCollectionViewHeaderLayout.swift */,
 				767D8FB51EAB6EC7002FA775 /* Assets.xcassets */,
 				767D8FBA1EAB6EC7002FA775 /* Info.plist */,
 				769780A01EABA6D60031CB89 /* MainTabBarItems.swift */,
@@ -271,10 +289,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				769780AB1EABF0860031CB89 /* ImageListViewController.swift in Sources */,
+				769780AD1EACD47E0031CB89 /* ImageListCollectionViewCell.swift in Sources */,
 				767D8FAF1EAB6EC7002FA775 /* AppDelegate.swift in Sources */,
 				76FD75391EAB89D30023B597 /* Presenter.swift in Sources */,
+				769780A71EABE6770031CB89 /* ImageListNetworkService.swift in Sources */,
 				769780A11EABA6D60031CB89 /* MainTabBarItems.swift in Sources */,
+				769780A91EABE8330031CB89 /* NetworkTask.swift in Sources */,
+				769780A31EABD5C20031CB89 /* StretchCollectionViewHeaderLayout.swift in Sources */,
 				767D8FDD1EAB88AC002FA775 /* MainTabBarController.swift in Sources */,
+				769780A51EABE2BF0031CB89 /* ImagesListPresenter.swift in Sources */,
 				76FD753B1EAB90DC0023B597 /* MainPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

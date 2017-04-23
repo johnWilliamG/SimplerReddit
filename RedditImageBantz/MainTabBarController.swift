@@ -10,7 +10,6 @@ import UIKit
 
 class MainTabBarController: UITabBarController {
     
-    
     var presenter: MainPresenter!
     
     override func viewDidLoad() {
@@ -25,7 +24,7 @@ class MainTabBarController: UITabBarController {
 extension MainTabBarController: PresenterDelegate {
     
     func presenterDidUpdate() {
-        print(self.viewControllers?.count ?? "failed")
+        self.selectedViewController = self.viewControllers?[1]
     }
     
     func presenterDidFailWithError() -> Error? {

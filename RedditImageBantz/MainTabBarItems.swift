@@ -16,9 +16,9 @@ struct MainTabBarItems {
 
     public var barItems: [MainTabBarItem] {
         get {
-            let firstItem = MainTabBarItem(type: .List, barItem: firstTabBarItem)
-            let secondItem = MainTabBarItem(type: .Images, barItem: secondTabBarItem)
-            let thirdItem = MainTabBarItem(type: .Me, barItem: thirdTabBarItem)
+            let firstItem = MainTabBarItem(type: .list, barItem: firstTabBarItem)
+            let secondItem = MainTabBarItem(type: .images, barItem: secondTabBarItem)
+            let thirdItem = MainTabBarItem(type: .me, barItem: thirdTabBarItem)
             return [firstItem, secondItem, thirdItem]
         }
     }
@@ -32,7 +32,7 @@ struct MainTabBarItem {
 
 enum MainBarItemType: String {
     
-    case List = "List"
-    case Images = "Images"
-    case Me = "Me"
+    case list = "List"
+    case images = "Images"
+    case me = "Me"
 }

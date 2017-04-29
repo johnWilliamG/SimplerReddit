@@ -15,6 +15,8 @@ class ImagesListPresenter: Presenter {
     
     let service: ImageListNetworkService!
     var task: URLSessionDataTask?
+    
+    var images: [RedditImage]?
 
     init(service: ImageListNetworkService) {
         self.service = service
@@ -23,7 +25,15 @@ class ImagesListPresenter: Presenter {
     func loadData() {
         
         task = self.service.fetchImagesTask { (images, error) in
-            print("hello")
+
+            guard let fetchedImages = images else {
+                return
+            }
+            
+            if fetchedImages.count > 0  && error == nil {
+                self.images = fetchedImages
+                self.delegate?.presenterDidUpdate()
+            }
         }
         
         task?.resume()

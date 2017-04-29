@@ -45,10 +45,6 @@ class ImageListViewController: UIViewController {
         
         collectionView.frame            = view.bounds
         collectionView.autoresizingMask = [ .flexibleWidth, .flexibleHeight ]
-//        collectionView.backgroundColor  = Colors.transparent
-        
-//        collectionView.dataSource = listAdapter
-//        collectionView.delegate   = listAdapter
         
         collectionView.remembersLastFocusedIndexPath = true
         

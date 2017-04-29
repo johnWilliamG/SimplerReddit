@@ -10,7 +10,7 @@ import UIKit
 
 class ImageListNetworkService {
     
-    func fetchImagesTask(withCompletion completion: @escaping ([UIImage]?, Error?)-> ()) -> URLSessionDataTask {
+    func fetchImagesTask(withCompletion completion: @escaping ([RedditImage]?, Error?)-> ()) -> URLSessionDataTask {
         
        return perfromNetworkRequest(session: URLSession(configuration: .default), request: makeGetRequest()) { data, networkError in
             
@@ -25,12 +25,42 @@ class ImageListNetworkService {
             }
             
             let formattedJson = self.formatImageJson(from: responseData)
-            
-            completion(formattedJson.0, formattedJson.1)
+        
+            guard let redditImages = formattedJson.0 else {
+                completion(nil,nil)
+                return
+            }
+        
+            let populatedImages = self.addThumbNailToRedditImages(redditImages)
+        
+            completion(populatedImages, formattedJson.1)
         }
     }
     
-    func formatImageJson(from data: Data) -> ([UIImage]?, Error?) {
+
+    
+    // Downloads and adds the thumbnail to reddit images
+    func addThumbNailToRedditImages(_ redditImages: [RedditImage]) -> [RedditImage] {
+        
+        var populatedRedditImages: [RedditImage] = []
+        
+        for redditImage in redditImages {
+            
+            guard let thumbailUrl = URL(string: redditImage.thumbnailUrl),
+                  let thumbnailData = try? Data(contentsOf: thumbailUrl) else {
+                break
+            }
+        
+            if let thumbnailImage = UIImage(data: thumbnailData) {
+                redditImage.thumbnail = thumbnailImage
+                populatedRedditImages.append(redditImage)
+            }
+        }
+        
+        return populatedRedditImages
+    }
+    
+    func formatImageJson(from data: Data) -> ([RedditImage]?, Error?) {
         
         do {
             
@@ -38,12 +68,16 @@ class ImageListNetworkService {
                 return (nil, nil)
             }
             
-            print(parsedData)
+            guard let redditImages = try RedditImageObjectMapper.formatRedditImages(json: parsedData) else {
+                return (nil, nil)
+            }
+        
+            return (redditImages, nil)
+            
         } catch let error as NSError {
             
             return(nil, error)
         }
-        return (nil, nil)
     }
     
     func perfromNetworkRequest(session: URLSession, request resquest: URLRequest, completion:@escaping (Data?, Error?) -> ())  -> URLSessionDataTask {
@@ -58,7 +92,7 @@ class ImageListNetworkService {
     }
     
     func makeGetRequest() -> URLRequest {
-        let mgsUrl = URL(string: "https://www.reddit.com/r/metalgearsolid/.json")
+        let mgsUrl = URL(string: "https://www.reddit.com/r/villageporn/.json")
         return URLRequest(url: mgsUrl!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 30)
     }
 }

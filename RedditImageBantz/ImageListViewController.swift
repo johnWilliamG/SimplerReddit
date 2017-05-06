@@ -8,29 +8,24 @@
 
 import UIKit
 
-class ImageListViewController: UIViewController {
+class ImageListViewController: UIViewController, UICollectionViewDelegate {
     
-    var presenter: ImagesListPresenter!
+    public var presenter: ImagesListPresenter!
     
     var collectionView: UICollectionView
     
     var refreshControl: UIRefreshControl = UIRefreshControl()
     
-    /// Convenience init with a default collection view flow layout and properties.
-    convenience init() {
-        
-        let collectionViewLayout = UICollectionViewFlowLayout()
-        
-        collectionViewLayout.sectionInset            = UIEdgeInsets(top: 6, left: 0, bottom: 6, right: 0)
-        collectionViewLayout.minimumLineSpacing      = 4
-        collectionViewLayout.minimumInteritemSpacing = 0
-        
-        self.init(collectionViewLayout: collectionViewLayout)
-    }
+    var dataSource: ImageListDataSource
+    
+    var delegate: ImageListCollectionViewFlowLayout
     
     /// init with a custom collection view layout.
-    init(collectionViewLayout: UICollectionViewLayout) {
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
+    init(collectionViewLayout: UICollectionViewLayout, imagePresenter: ImagesListPresenter) {
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        presenter = imagePresenter
+        dataSource = ImageListDataSource(imageListPresenter: presenter)
+        delegate = ImageListCollectionViewFlowLayout()
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -39,37 +34,26 @@ class ImageListViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewDidLayoutSubviews() {
+        collectionView.frame = view.bounds
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        collectionView.contentSize = view.bounds.size
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.frame            = view.bounds
-        collectionView.autoresizingMask = [ .flexibleWidth, .flexibleHeight ]
-        
-        collectionView.remembersLastFocusedIndexPath = true
-        
-        refreshControl.addTarget(self, action: #selector(refreshValueDidChange), for: .valueChanged)
-        
-        collectionView.alwaysBounceVertical = true
-        
-        if #available(iOS 10.0, *) {
-            collectionView.refreshControl = refreshControl
-        } else {
-            collectionView.insertSubview(refreshControl, at: 0)
-        }
-        
-        refreshControl.superview?.sendSubview(toBack: refreshControl)
-        
-        if #available(iOS 10.0, *) {
-            collectionView.isPrefetchingEnabled = true
-//            collectionView.prefetchDataSource   = listAdapter
-        }
-        
+        collectionView.dataSource = dataSource
+        collectionView.delegate = delegate
+        collectionView.register(UINib(nibName: "ImageListCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageListCollectionViewCell")
+        collectionView.backgroundColor = .clear
         view.addSubview(collectionView)
-        
+
         presenter.delegate = self
-        
-//        presenter.register(with: collectionView)
         presenter.loadData()
     }
     
@@ -83,6 +67,7 @@ extension ImageListViewController: PresenterDelegate {
     
     
     func presenterDidUpdate() {
+        collectionView.reloadData()
     }
     
     func presenterDidFailWithError() -> Error? {

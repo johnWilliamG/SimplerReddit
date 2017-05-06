@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		761F591A1EAB96FC006B1C0A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 761F59191EAB96FC006B1C0A /* Default-568h@2x.png */; };
+		76488BBF1EB60AA000AE2856 /* ImageListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76488BBE1EB60AA000AE2856 /* ImageListDataSource.swift */; };
+		76488BC11EB60E0F00AE2856 /* ImageListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76488BC01EB60E0F00AE2856 /* ImageListCollectionViewCell.xib */; };
+		76488BC31EB60F9B00AE2856 /* ImageListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76488BC21EB60F9B00AE2856 /* ImageListCollectionViewCell.swift */; };
 		76687FFB1EB49EB6001F96F8 /* RedditImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76687FFA1EB49EB6001F96F8 /* RedditImage.swift */; };
 		76687FFD1EB49FD9001F96F8 /* RedditImageObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76687FFC1EB49FD9001F96F8 /* RedditImageObjectMapper.swift */; };
 		767D8FAF1EAB6EC7002FA775 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767D8FAE1EAB6EC7002FA775 /* AppDelegate.swift */; };
-		767D8FB41EAB6EC7002FA775 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 767D8FB21EAB6EC7002FA775 /* Main.storyboard */; };
 		767D8FB61EAB6EC7002FA775 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 767D8FB51EAB6EC7002FA775 /* Assets.xcassets */; };
 		767D8FC41EAB6EC7002FA775 /* RedditImageBantzTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767D8FC31EAB6EC7002FA775 /* RedditImageBantzTests.swift */; };
 		767D8FCF1EAB6EC7002FA775 /* RedditImageBantzUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767D8FCE1EAB6EC7002FA775 /* RedditImageBantzUITests.swift */; };
@@ -20,8 +21,9 @@
 		769780A31EABD5C20031CB89 /* StretchCollectionViewHeaderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769780A21EABD5C20031CB89 /* StretchCollectionViewHeaderLayout.swift */; };
 		769780A51EABE2BF0031CB89 /* ImagesListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769780A41EABE2BF0031CB89 /* ImagesListPresenter.swift */; };
 		769780A71EABE6770031CB89 /* ImageListNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769780A61EABE6770031CB89 /* ImageListNetworkService.swift */; };
-		769780A91EABE8330031CB89 /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769780A81EABE8330031CB89 /* NetworkTask.swift */; };
 		769780AB1EABF0860031CB89 /* ImageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769780AA1EABF0860031CB89 /* ImageListViewController.swift */; };
+		76A954C71EB9B9D0007C2E1E /* ImageListColecctionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A954C61EB9B9D0007C2E1E /* ImageListColecctionViewFlowLayout.swift */; };
+		76D285A61EB614770036AE7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 767D8FB21EAB6EC7002FA775 /* Main.storyboard */; };
 		76FD75391EAB89D30023B597 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD75381EAB89D30023B597 /* Presenter.swift */; };
 		76FD753B1EAB90DC0023B597 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FD753A1EAB90DC0023B597 /* MainPresenter.swift */; };
 /* End PBXBuildFile section */
@@ -44,7 +46,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		761F59191EAB96FC006B1C0A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		76488BBE1EB60AA000AE2856 /* ImageListDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageListDataSource.swift; sourceTree = "<group>"; };
+		76488BC01EB60E0F00AE2856 /* ImageListCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageListCollectionViewCell.xib; sourceTree = "<group>"; };
+		76488BC21EB60F9B00AE2856 /* ImageListCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageListCollectionViewCell.swift; sourceTree = "<group>"; };
 		76687FFA1EB49EB6001F96F8 /* RedditImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedditImage.swift; sourceTree = "<group>"; };
 		76687FFC1EB49FD9001F96F8 /* RedditImageObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedditImageObjectMapper.swift; sourceTree = "<group>"; };
 		767D8FAB1EAB6EC7002FA775 /* RedditImageBantz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditImageBantz.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,8 +67,8 @@
 		769780A21EABD5C20031CB89 /* StretchCollectionViewHeaderLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StretchCollectionViewHeaderLayout.swift; sourceTree = "<group>"; };
 		769780A41EABE2BF0031CB89 /* ImagesListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesListPresenter.swift; sourceTree = "<group>"; };
 		769780A61EABE6770031CB89 /* ImageListNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageListNetworkService.swift; sourceTree = "<group>"; };
-		769780A81EABE8330031CB89 /* NetworkTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTask.swift; sourceTree = "<group>"; };
 		769780AA1EABF0860031CB89 /* ImageListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageListViewController.swift; sourceTree = "<group>"; };
+		76A954C61EB9B9D0007C2E1E /* ImageListColecctionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageListColecctionViewFlowLayout.swift; sourceTree = "<group>"; };
 		76FD75381EAB89D30023B597 /* Presenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		76FD753A1EAB90DC0023B597 /* MainPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,7 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				76FD75381EAB89D30023B597 /* Presenter.swift */,
-				769780A81EABE8330031CB89 /* NetworkTask.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 			children = (
 				76687FFA1EB49EB6001F96F8 /* RedditImage.swift */,
 				76687FFC1EB49FD9001F96F8 /* RedditImageObjectMapper.swift */,
+				76488BBE1EB60AA000AE2856 /* ImageListDataSource.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -165,6 +169,9 @@
 			isa = PBXGroup;
 			children = (
 				769780A21EABD5C20031CB89 /* StretchCollectionViewHeaderLayout.swift */,
+				76488BC01EB60E0F00AE2856 /* ImageListCollectionViewCell.xib */,
+				76488BC21EB60F9B00AE2856 /* ImageListCollectionViewCell.swift */,
+				76A954C61EB9B9D0007C2E1E /* ImageListColecctionViewFlowLayout.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -172,7 +179,6 @@
 		767D8FA21EAB6EC6002FA775 = {
 			isa = PBXGroup;
 			children = (
-				761F59191EAB96FC006B1C0A /* Default-568h@2x.png */,
 				767D8FAD1EAB6EC7002FA775 /* RedditImageBantz */,
 				767D8FC21EAB6EC7002FA775 /* RedditImageBantzTests */,
 				767D8FCD1EAB6EC7002FA775 /* RedditImageBantzUITests */,
@@ -329,9 +335,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				761F591A1EAB96FC006B1C0A /* Default-568h@2x.png in Resources */,
+				76D285A61EB614770036AE7B /* Main.storyboard in Resources */,
 				767D8FB61EAB6EC7002FA775 /* Assets.xcassets in Resources */,
-				767D8FB41EAB6EC7002FA775 /* Main.storyboard in Resources */,
+				76488BC11EB60E0F00AE2856 /* ImageListCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,13 +367,15 @@
 				76FD75391EAB89D30023B597 /* Presenter.swift in Sources */,
 				76687FFD1EB49FD9001F96F8 /* RedditImageObjectMapper.swift in Sources */,
 				769780A71EABE6770031CB89 /* ImageListNetworkService.swift in Sources */,
+				76A954C71EB9B9D0007C2E1E /* ImageListColecctionViewFlowLayout.swift in Sources */,
 				769780A11EABA6D60031CB89 /* MainTabBarItems.swift in Sources */,
-				769780A91EABE8330031CB89 /* NetworkTask.swift in Sources */,
 				769780A31EABD5C20031CB89 /* StretchCollectionViewHeaderLayout.swift in Sources */,
 				767D8FDD1EAB88AC002FA775 /* MainTabBarController.swift in Sources */,
 				769780A51EABE2BF0031CB89 /* ImagesListPresenter.swift in Sources */,
 				76687FFB1EB49EB6001F96F8 /* RedditImage.swift in Sources */,
 				76FD753B1EAB90DC0023B597 /* MainPresenter.swift in Sources */,
+				76488BBF1EB60AA000AE2856 /* ImageListDataSource.swift in Sources */,
+				76488BC31EB60F9B00AE2856 /* ImageListCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

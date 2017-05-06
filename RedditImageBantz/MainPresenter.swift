@@ -44,8 +44,8 @@ class MainPresenter: Presenter {
         collectionViewLayout.minimumLineSpacing      = 8
         collectionViewLayout.minimumInteritemSpacing = 0
         
-        let imageListViewController = ImageListViewController(collectionViewLayout: collectionViewLayout)
-        imageListViewController.presenter = ImagesListPresenter(service: ImageListNetworkService())
+        let imageListPresenter = ImagesListPresenter(service: ImageListNetworkService())
+        let imageListViewController = ImageListViewController(collectionViewLayout: UICollectionViewLayout(), imagePresenter: imageListPresenter)
         
         return imageListViewController
     }

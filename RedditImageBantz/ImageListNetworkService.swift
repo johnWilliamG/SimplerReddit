@@ -71,7 +71,6 @@ class ImageListNetworkService {
             guard let redditImages = try RedditImageObjectMapper.formatRedditImages(json: parsedData) else {
                 return (nil, nil)
             }
-        
             return (redditImages, nil)
             
         } catch let error as NSError {

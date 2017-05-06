@@ -11,7 +11,6 @@ import Foundation
 enum RedditImageObjectMapperErrors: Error {
     
     case unexpectedJsonKeys
-    
 }
 
 
@@ -26,9 +25,6 @@ class RedditImageObjectMapper {
         guard let listItems = listObjects["children"] as! [[String: Any]]? else {
             throw RedditImageObjectMapperErrors.unexpectedJsonKeys
         }
-        
-        print(listItems)
-        print(listItems.count)
         
         var redditImages: [RedditImage] = []
         

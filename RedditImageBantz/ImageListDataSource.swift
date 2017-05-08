@@ -19,12 +19,7 @@ class ImageListDataSource: NSObject, UICollectionViewDataSource, UICollectionVie
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return presenter.images?.count ?? 0
     }
-
-    public func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
     
-    // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageListCollectionViewCell", for: indexPath) as! ImageListCollectionViewCell

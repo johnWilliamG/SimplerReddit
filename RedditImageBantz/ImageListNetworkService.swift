@@ -32,11 +32,33 @@ class ImageListNetworkService {
             }
         
             let populatedImages = self.addThumbNailToRedditImages(redditImages)
-        
-            completion(populatedImages, formattedJson.1)
+            let populatedBigImages = self.populatedBigImages(populatedImages)
+            completion(populatedBigImages, formattedJson.1)
         }
     }
     
+    
+    func populatedBigImages(_ redditImages: [RedditImage]) -> [RedditImage] {
+        
+        
+        var populatedRedditImages: [RedditImage] = []
+        
+        for redditImage in redditImages {
+            
+            guard let bigImageUrl = URL(string: redditImage.largeImageUrl),
+                let imageData = try? Data(contentsOf: bigImageUrl) else {
+                continue
+            }
+            
+            if let image = UIImage(data: imageData) {
+                redditImage.largeImage = image
+                populatedRedditImages.append(redditImage)
+            }
+            
+        }
+        
+        return populatedRedditImages
+    }
 
     
     // Downloads and adds the thumbnail to reddit images

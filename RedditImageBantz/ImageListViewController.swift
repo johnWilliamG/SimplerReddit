@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageListViewController: UIViewController, UICollectionViewDelegate {
+class ImageListViewController: UIViewController {
     
     public var presenter: ImagesListPresenter!
     
@@ -20,12 +20,11 @@ class ImageListViewController: UIViewController, UICollectionViewDelegate {
     
     var delegate: ImageListCollectionViewFlowLayout
     
-    /// init with a custom collection view layout.
     init(collectionViewLayout: UICollectionViewLayout, imagePresenter: ImagesListPresenter) {
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
         presenter = imagePresenter
         dataSource = ImageListDataSource(imageListPresenter: presenter)
-        delegate = ImageListCollectionViewFlowLayout()
+        delegate = ImageListCollectionViewFlowLayout(imageListPresenter: presenter)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -34,22 +33,13 @@ class ImageListViewController: UIViewController, UICollectionViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLayoutSubviews() {
-        collectionView.frame = view.bounds
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        collectionView.contentSize = view.bounds.size
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.dataSource = dataSource
         collectionView.delegate = delegate
         collectionView.register(UINib(nibName: "ImageListCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageListCollectionViewCell")
+        collectionView.frame = view.bounds
         collectionView.backgroundColor = .clear
         view.addSubview(collectionView)
 
@@ -65,13 +55,13 @@ class ImageListViewController: UIViewController, UICollectionViewDelegate {
 
 extension ImageListViewController: PresenterDelegate {
     
-    
     func presenterDidUpdate() {
-        collectionView.reloadData()
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
     
     func presenterDidFailWithError() -> Error? {
         return nil
     }
-    
 }

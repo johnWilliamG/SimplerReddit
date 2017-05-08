@@ -153,6 +153,7 @@
 				76687FFA1EB49EB6001F96F8 /* RedditImage.swift */,
 				76687FFC1EB49FD9001F96F8 /* RedditImageObjectMapper.swift */,
 				76488BBE1EB60AA000AE2856 /* ImageListDataSource.swift */,
+				76A954C61EB9B9D0007C2E1E /* ImageListColecctionViewFlowLayout.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -171,7 +172,6 @@
 				769780A21EABD5C20031CB89 /* StretchCollectionViewHeaderLayout.swift */,
 				76488BC01EB60E0F00AE2856 /* ImageListCollectionViewCell.xib */,
 				76488BC21EB60F9B00AE2856 /* ImageListCollectionViewCell.swift */,
-				76A954C61EB9B9D0007C2E1E /* ImageListColecctionViewFlowLayout.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";

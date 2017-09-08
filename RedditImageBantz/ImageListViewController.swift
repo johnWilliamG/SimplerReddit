@@ -40,6 +40,8 @@ class ImageListViewController: UIViewController {
         collectionView.delegate = delegate
         collectionView.register(UINib(nibName: "ImageListCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ImageListCollectionViewCell")
         collectionView.frame = view.bounds
+        collectionView.contentInset = UIEdgeInsetsMake(8, 0, 0, 0)
+        
         collectionView.backgroundColor = .clear
         view.addSubview(collectionView)
 
@@ -47,8 +49,11 @@ class ImageListViewController: UIViewController {
         presenter.loadData()
     }
     
-    func refreshValueDidChange() {
-        presenter.loadData()
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        DispatchQueue.main.async {
+            self.collectionView.layoutIfNeeded()
+        }
     }
 }
 

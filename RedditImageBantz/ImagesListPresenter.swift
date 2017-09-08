@@ -15,27 +15,44 @@ class ImagesListPresenter: Presenter {
     
     let service: ImageListNetworkService!
     var task: URLSessionDataTask?
-    
+    public var index: Int
     var images: [RedditImage]?
+    public var subReddit: String?
 
     init(service: ImageListNetworkService) {
         self.service = service
+        index = 1
+        subReddit = "itookapicture"
     }
     
     func loadData() {
         
-        task = self.service.fetchImagesTask { (images, error) in
-
+        task = self.service.fetchImagesTask(withCompletion: { images, error in
+            
             guard let fetchedImages = images else {
                 return
             }
             
             if fetchedImages.count > 0  && error == nil {
-                self.images = fetchedImages
-                self.delegate?.presenterDidUpdate()
+                
+                if var images = self.images {
+                    images = images + fetchedImages
+                } else {
+                    self.images = fetchedImages
+                }
+                
+                _ = fetchedImages.map {
+                    $0.delegate = self
+                    $0.populate()
+                }
             }
-        }
-        
+        }, subReddit, index)
         task?.resume()
+    }
+}
+
+extension ImagesListPresenter: RedditImagePopulatorDelegate {
+    func redditImageDidUpdate() {
+        self.delegate?.presenterDidUpdate()
     }
 }

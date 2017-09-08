@@ -10,9 +10,9 @@ import UIKit
 
 class ImageListNetworkService {
     
-    func fetchImagesTask(withCompletion completion: @escaping ([RedditImage]?, Error?)-> ()) -> URLSessionDataTask {
+    func fetchImagesTask(withCompletion completion: @escaping ([RedditImage]?, Error?)-> (),_ subReddit: String?, _ pageIndex: Int? ) -> URLSessionDataTask {
         
-       return perfromNetworkRequest(session: URLSession(configuration: .default), request: makeGetRequest()) { data, networkError in
+       return perfromNetworkRequest(session: URLSession(configuration: .default), request: makeGetRequest(subReddit, pageIndex)) { data, networkError in
             
             if let error = networkError {
                 completion(nil, error)
@@ -31,9 +31,7 @@ class ImageListNetworkService {
                 return
             }
         
-            let populatedImages = self.addThumbNailToRedditImages(redditImages)
-            let populatedBigImages = self.populatedBigImages(populatedImages)
-            completion(populatedBigImages, formattedJson.1)
+            completion(redditImages, formattedJson.1)
         }
     }
     
@@ -112,8 +110,12 @@ class ImageListNetworkService {
         }
     }
     
-    func makeGetRequest() -> URLRequest {
-        let mgsUrl = URL(string: "https://www.reddit.com/r/villageporn/.json")
+    func makeGetRequest(_ subReddit: String?, _ pageIndex: Int?) -> URLRequest {
+        
+        let subRedditURLSection = subReddit != nil ? "r/\(subReddit!)/" : ""
+        
+        let mgsUrl = URL(string: "https://www.reddit.com/\(subRedditURLSection).json?count=50")
         return URLRequest(url: mgsUrl!, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 30)
+        
     }
 }

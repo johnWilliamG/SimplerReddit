@@ -15,9 +15,17 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Configure Presenter
         presenter.delegate = self
         presenter.viewController = self
         presenter.loadData()
+        
+        //Configure View
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.view.bounds
+        gradientLayer.colors = [UIColor.lightGray.cgColor, UIColor.white.cgColor]
+        gradientLayer.locations = [0.0, 0.8]
+        view.layer.insertSublayer(gradientLayer, at: 0)
     }
 }
 

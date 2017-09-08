@@ -22,7 +22,9 @@ class ImageListDataSource: NSObject, UICollectionViewDataSource, UICollectionVie
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageListCollectionViewCell", for: indexPath) as! ImageListCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageListCollectionViewCell", for: indexPath) as? ImageListCollectionViewCell else {
+            return UICollectionViewCell()
+        }
         
         guard let image = presenter.images?[indexPath.row] else {
             return cell

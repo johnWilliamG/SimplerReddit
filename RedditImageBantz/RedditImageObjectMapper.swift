@@ -31,17 +31,18 @@ class RedditImageObjectMapper {
         for listItem in listItems {
             
             guard let imageData = listItem["data"] as! [String: Any]?,
+                  let postHint = imageData["post_hint"] as! String?,
+                  postHint == "image",
                   let thumbNailUrl = imageData["thumbnail"] as! String?,
                   let imageUrl = imageData["url"] as! String?,
                   let redditImageId = imageData["id"] as! String?,
-                  let postHint = imageData["post_hint"] as! String? else {
+                  let title = imageData["title"] as! String? else {
                 continue
             }
             
-            if postHint == "image" {
-                let redditImage = RedditImage(largeImageUrl: imageUrl, thumbnailUrl: thumbNailUrl, photoID: redditImageId)
-                redditImages.append(redditImage)
-            }
+            let redditImage = RedditImage(largeImageUrl: imageUrl, thumbnailUrl: thumbNailUrl, photoID: redditImageId, title: title)
+            
+            redditImages.append(redditImage)
         }
         
         return redditImages

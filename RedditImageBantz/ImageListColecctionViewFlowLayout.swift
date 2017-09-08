@@ -8,12 +8,16 @@
 
 import UIKit
 
-class ImageListCollectionViewFlowLayout: NSObject, UICollectionViewDelegateFlowLayout {
+class ImageListCollectionViewFlowLayout: NSObject, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
     var presenter: ImagesListPresenter
     
     init(imageListPresenter: ImagesListPresenter) {
         presenter = imageListPresenter
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat{
+        return 12
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -23,23 +27,17 @@ class ImageListCollectionViewFlowLayout: NSObject, UICollectionViewDelegateFlowL
         }
         
         let aspectRatio = image.size.height / image.size.width
-        let width = collectionView.bounds.width/2
+        var width: CGFloat
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+             width = collectionView.bounds.width/2
+        } else {
+             width = collectionView.bounds.width
+        }
+        
         let height = width * aspectRatio
         let size = CGSize(width: width, height: height)
         
         return size 
-    }
-    
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .zero
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
     }
 }

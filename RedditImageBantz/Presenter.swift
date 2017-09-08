@@ -17,8 +17,6 @@ public protocol Presenter {
     weak var delegate: PresenterDelegate? { get }
     
     func loadData()
-    
-//    optional func cease()
 }
 
 public protocol PresenterDelegate: class {

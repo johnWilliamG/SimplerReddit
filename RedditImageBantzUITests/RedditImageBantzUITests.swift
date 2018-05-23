@@ -29,8 +29,13 @@ class RedditImageBantzUITests: XCTestCase {
     }
     
     func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        
+        let app = XCUIApplication()
+        let tabBarsQuery = app.tabBars
+        tabBarsQuery.buttons["List"].tap()
+        tabBarsQuery.buttons["Images"].tap()
+        XCTAssert(tabBarsQuery.buttons.count == 3)
     }
     
 }
